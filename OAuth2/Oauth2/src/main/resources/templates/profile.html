@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Profile</title>
+</head>
+<body>
+<h1>Profile</h1>
+<div>
+    <form method="post" th:action="@{/profile}">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <div>
+            <label>Email</label>
+            <span th:text="${user.email}"></span>
+        </div>
+        <div>
+            <label>Display Name</label>
+            <input name="displayName" th:value="${user.displayName}" />
+        </div>
+        <div>
+            <label>Bio</label>
+            <textarea name="bio" th:text="${user.bio}"></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+    <p><a th:href="@{/}">Home</a></p>
+</div>
+</body>
+</html>
